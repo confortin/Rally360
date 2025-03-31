@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rally360</title>
+
+    <style>
+        body {
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .carousel {
+            position: relative;
+            width: 800px;
+            margin: auto;
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+
+.style1 {
+    background-color: #0004f7;
+    color: rgb(157, 255, 0);
+}
+.style2 { 
+    background-color: #8cb9ca;
+    color: rgb(0, 0, 0);
+}
+
+.style3 {
+    background-color: #ff9900;
+    color: rgb(0, 0, 0);
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Rally360</h1>
+        <p> tudo sobre carros de rally</p>
+        <link rel="stylesheet" href="styles.css">
+    </header>
+    <main>
+
+        <div class="carousel">
+            <button class="arrow prev" onclick="changeImage(-1)">&#10094;</button>
+            <img src="assets/images.jpeg" class="active">
+            <img src="assets/ford-rs200.avif">
+            <img src="assets/audi.jpeg">
+            
+            <button class="arrow next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+        <script>
+            let index = 0;
+            const images = document.querySelectorAll('.carousel img');
+            const styles = ["style1", "style2", "style3"];
+            
+
+
+            function changeImage(direction) {
+                images[index].classList.remove('active');
+                
+                // Remove a classe de estilo anterior do body
+                document.body.classList.remove(styles[index]);
+
+                index = (index + direction + images.length) % images.length;
+                
+                images[index].classList.add('active');
+
+                // Adiciona a nova classe ao body
+                document.body.classList.add(styles[index]);
+
+            }
+        </script>
+
+
+
+    
+    </main>
+
+    <footer>
+
+
+    </footer>
+</body>
+</html>
