@@ -30,3 +30,13 @@ nextBtn.addEventListener("click", function () {
 });
 
 });
+
+document.querySelectorAll('.car-card').forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.querySelector('.car-info').style.bottom = '0';
+    });
+
+    card.addEventListener('mouseout', () => {
+        card.querySelector('.car-info').style.bottom = '-100%';
+    });
+});
